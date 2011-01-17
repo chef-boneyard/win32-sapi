@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
   spec.rubyforge_project = 'win32utils'
   spec.extra_rdoc_files  = ['README', 'CHANGES', 'MANIFEST']
 
+  spec.add_development_dependency('windows-pr')
+
   spec.description = <<-EOF
     The win32-sapi library provides an interface to the MS Windows sound
     interface, otherwise known as SAPI, using OLE.
