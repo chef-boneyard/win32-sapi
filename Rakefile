@@ -1,26 +1,29 @@
 require 'rake'
+require 'rake/clean'
 require 'rake/testtask'
 
-desc 'Install the win32-sapi library (non-gem)'
-task :install do
-   dest = File.join(Config::CONFIG['sitelibdir'], 'win32')
-   Dir.mkdir(dest) unless File.exists? dest
-   cp 'lib/win32/sapi5.rb', dest, :verbose => true
+CLEAN.include('**/*.gem', '**/*.rbc')
+
+namespace :gem do
+  desc "Create the win32-sapi gem"
+  task :create => [:clean] do
+    spec = eval(IO.read('win32-sapi.gemspec'))
+    Gem::Builder.new(spec).build
+  end
+
+  desc "Install the win32-sapi gem"
+  task :install => [:create] do
+    file = Dir["*.gem"].first
+    sh "gem install #{file}"
+  end
 end
 
-desc 'Install the win32-sapi library as a gem'
-task :install_gem do
-   ruby 'win32-sapi.gemspec'
-   file = Dir["*.gem"].first
-   sh "gem install #{file}"
-end
-
-desc 'Run the example program'
+desc 'Run the example win32-sapi program'
 task :example do
-   ruby '-Ilib examples/example_sapi5.rb'
+  ruby '-Ilib examples/example_sapi5.rb'
 end
 
 Rake::TestTask.new do |t|
-   t.warning = true
-   t.verbose = true
+  t.warning = true
+  t.verbose = true
 end
