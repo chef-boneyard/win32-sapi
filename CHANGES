@@ -1,3 +1,8 @@
+== 0.1.6 - 17-Jan-2011
+* Some Rakefile and gemspec updates.
+* Two tests now skipped on Windows XP.
+* Added windows-pr as a development dependency.
+
 == 0.1.5 - 10-Aug-2009
 * Changed license to Artistic 2.0.
 * Some gemspec updates, including license and description.
