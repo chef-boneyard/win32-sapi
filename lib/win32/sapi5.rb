@@ -190,7 +190,7 @@ module Win32
   #
   class SpWaveFormatEx < SAPI5
     def initialize
-       super("{C79A574C-63BE-44b9-801F-283F87F898BE}")
+      super("{C79A574C-63BE-44b9-801F-283F87F898BE}")
     end
   end
 end
