@@ -1,3 +1,9 @@
+== 0.1.7 - 23-Aug-2013
+* Removed windows-pr as a development dependency. Added rake and
+  test-unit as development dependencies.
+* Updates to the README and gemspec files.
+* Updated gem:create task for Rubygems 2.x.
+
 == 0.1.6 - 17-Jan-2011
 * Some Rakefile and gemspec updates.
 * Two tests now skipped on Windows XP.
