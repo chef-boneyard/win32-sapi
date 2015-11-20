@@ -3,6 +3,8 @@
 * MANIFEST
 * Rakefile
 * win32-sapi.gemspec
+* certs/djberg96_pub.pem
 * examples/example_sapi5.rb
+* lib/win32-sapi5.rb
 * lib/win32/sapi5.rb
 * test/test_win32_sapi5.rb
