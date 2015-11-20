@@ -13,7 +13,7 @@ module Win32
   #
   class SAPI5 < WIN32OLE
     # The version of the win32-sapi library.
-    VERSION = '0.1.7'
+    VERSION = '0.1.8'
   end
 
   # The SpAudioFormat automation object represents an audio format.

@@ -19,7 +19,7 @@ class TC_Win32_SAPI5 < Test::Unit::TestCase
   end
 
   def test_version
-    assert_equal('0.1.7', SAPI5::VERSION)
+    assert_equal('0.1.8', SAPI5::VERSION)
   end
 
   def test_SpAudioFormat
