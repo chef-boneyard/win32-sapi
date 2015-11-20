@@ -1,3 +1,9 @@
+== 0.1.8 - 20-Nov-2015
+* This gem is now signed.
+* Gem related tasks in the Rakefile now assume Rubygems 2.x.
+* Updated gemspec, removing rubyforge_project and adding cert_chain.
+* Added a win32-sapi.rb file for convenience.
+
 == 0.1.7 - 23-Aug-2013
 * Removed windows-pr as a development dependency. Added rake and
   test-unit as development dependencies.
