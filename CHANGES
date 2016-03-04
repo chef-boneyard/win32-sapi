@@ -1,3 +1,8 @@
+== 0.2.0 - 4-Mar-2016
+* Added some constants to the SpVoice class for the Speak method. Inspired
+  by github user "casper".
+* Removed explicit checks for Windows XP in the tests. No longer supported.
+
 == 0.1.8 - 20-Nov-2015
 * This gem is now signed.
 * Gem related tasks in the Rakefile now assume Rubygems 2.x.
