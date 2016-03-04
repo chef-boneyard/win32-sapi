@@ -13,7 +13,7 @@ module Win32
   #
   class SAPI5 < WIN32OLE
     # The version of the win32-sapi library.
-    VERSION = '0.1.8'
+    VERSION = '0.2.0'
   end
 
   # The SpAudioFormat automation object represents an audio format.
@@ -180,6 +180,16 @@ module Win32
   # immediately.
   #
   class SpVoice < SAPI5
+
+    # For use with the Speak method.
+
+    SPF_DEFAULT          = 0  # Not asynchronous
+    SPF_ASYNC            = 1  # Asynchronous
+    SPF_PURGEBEFORESPEAK = 2  # Purges all pending speak requests prior to this speak call.
+    SPF_IS_FILENAME      = 4  # The string passed is a file name, and the file text should be spoken.
+    SPF_IS_XML           = 8  # The input text will be parsed for XML markup.
+    SPF_IS_NOT_XML       = 16 # The input text should not be considered XML markup.
+
     def initialize
       super("{96749377-3391-11D2-9EE3-00C04F797396}")
     end
