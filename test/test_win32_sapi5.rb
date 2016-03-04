@@ -14,12 +14,8 @@ require 'win32/sapi5'
 include Win32
 
 class TC_Win32_SAPI5 < Test::Unit::TestCase
-  def self.startup
-    @@xp = ["5.1", "5.2"].include?(`ver`.strip[/\d\.\d/])
-  end
-
   def test_version
-    assert_equal('0.1.8', SAPI5::VERSION)
+    assert_equal('0.2.0', SAPI5::VERSION)
   end
 
   def test_SpAudioFormat
@@ -35,7 +31,6 @@ class TC_Win32_SAPI5 < Test::Unit::TestCase
   end
 
   def test_SpInProcRecoContext
-    omit_if(@@xp, "SpInProcRecoContext skipped on Windows XP")
     assert_nothing_raised{ SpInProcRecoContext.new }
   end
 
@@ -76,7 +71,6 @@ class TC_Win32_SAPI5 < Test::Unit::TestCase
   end
 
   def test_SpSharedRecoContext
-    omit_if(@@xp, "SpSharedRecoContext skipped on Windows XP")
     assert_nothing_raised{ SpSharedRecoContext.new }
   end
 
@@ -96,11 +90,16 @@ class TC_Win32_SAPI5 < Test::Unit::TestCase
     assert_nothing_raised{ SpVoice.new }
   end
 
-  def test_SpWaveFormatEx
-    assert_nothing_raised{ SpWaveFormatEx.new }
+  def test_SpVoice_constants
+    assert_equal(0, SpVoice::SPF_DEFAULT)
+    assert_equal(1, SpVoice::SPF_ASYNC)
+    assert_equal(2, SpVoice::SPF_PURGEBEFORESPEAK)
+    assert_equal(4, SpVoice::SPF_IS_FILENAME)
+    assert_equal(8, SpVoice::SPF_IS_XML)
+    assert_equal(16, SpVoice::SPF_IS_NOT_XML)
   end
 
-  def self.shutdown
-    @@xp = nil
+  def test_SpWaveFormatEx
+    assert_nothing_raised{ SpWaveFormatEx.new }
   end
 end
